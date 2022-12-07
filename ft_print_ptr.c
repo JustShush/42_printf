@@ -6,7 +6,7 @@
 /*   By: dimarque <dimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:31:06 by dimarque          #+#    #+#             */
-/*   Updated: 2022/12/02 16:56:34 by dimarque         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:52:25 by dimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,11 @@ int	ft_print_ptr(unsigned long long nbr, char *type)
 
 	i = 0;
 	j = 0;
-	if (nbr < 0)
-		nbr *= -1;
 	if (nbr == 0)
 		return (write(1, "(nil)", 5));
 	i += write(1, "0x", 2);
 	while (type[j])
 		j++;
-	if (nbr < 0)
-	{
-		i += ft_printchar('-');
-		nbr *= -1;
-	}
 	if (nbr >= j)
 		i += ft_base((nbr / j), type);
 	return (i + ft_printchar(type[nbr % j]));
